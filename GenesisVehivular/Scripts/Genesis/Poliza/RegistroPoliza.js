@@ -618,7 +618,7 @@ function RegistrarPoliza_onclick() {
     var nombres_reg = $("#nombres_reg").val();
     var paterno_reg = $("#paterno_reg").val();
     var materno_reg = $("#materno_reg").val();
-    var fecnaci_reg = $("#fecnaci_reg").val();
+    var fecnaci_reg_prev = $("#fecnaci_reg").val();
     var sp_Sexo = $("#sp_Sexo").val();
     var sp_EstadoCivil = $("#sp_EstadoCivil").val();
 
@@ -640,6 +640,8 @@ function RegistrarPoliza_onclick() {
     var celular_reg = $("#celular_reg").val();
     var telefono_reg = $("#telefono_reg").val();
     var email_reg = $("#email_reg").val();
+
+    fecnaci_reg = fecnaci_reg_prev.toString();
     
 
     var sumaaseguradapost = (parseFloat(sumaasegurada_reg).toFixed(2)).toString();
@@ -707,7 +709,7 @@ function validarEmail(elemento) {
 
 //Error:
 function OnError(data) {
-    alert("Error 404..");
+    alert("Error 404...");
 }
 
 
