@@ -642,7 +642,9 @@ function RegistrarPoliza_onclick() {
     var email_reg = $("#email_reg").val();
 
     fecnaci_reg = fecnaci_reg_prev.toString();
+    //fecnaci_reg = Text.valueOf(fecnaci_reg_prev);
     
+    //alert(fecnaci_reg_prev);
 
     var sumaaseguradapost = (parseFloat(sumaasegurada_reg).toFixed(2)).toString();
     //alert(sumaaseguradapost);
@@ -698,6 +700,28 @@ function validarEmail(elemento) {
 
     } 
 
+}
+
+function convertirDecimal(elemento) {
+  
+    
+    var numero1 = document.getElementById(elemento.id).value.trim();
+
+
+    if (numero1.length > 0) {
+        var numero2 = parseFloat(numero1)
+
+        var numero = numero2;
+        var conDecimal = numero.toFixed(2);
+        var newnum = conDecimal.toString();
+        $("#sumaasegurada_reg").val(newnum);
+    } else {
+        $("#sumaasegurada_reg").val("");
+    }
+
+    
+    
+    
 }
 
 
