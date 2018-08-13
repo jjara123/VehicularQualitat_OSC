@@ -131,7 +131,8 @@ namespace Dominio.Repositorio
                 string dfechanac,
                 int btsexo,
                 string vapellidopat,
-                string vapellidomat
+                string vapellidomat,
+                int idpoliza
 
             )
         {
@@ -163,7 +164,8 @@ namespace Dominio.Repositorio
                 dfechanac,
                 btsexo,
                 vapellidopat,
-                vapellidomat
+                vapellidomat,
+                idpoliza
 
                 );
         }

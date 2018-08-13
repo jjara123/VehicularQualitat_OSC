@@ -445,7 +445,8 @@ namespace Infraestrutura.Data.SqlServer
             string dfechanac,
             int btsexo,
             string vapellidopat,
-            string vapellidomat
+            string vapellidomat,
+            int idpoliza
 
 
             )
@@ -483,6 +484,7 @@ namespace Infraestrutura.Data.SqlServer
             cmd.Parameters.AddWithValue("@btsexo", btsexo);
             cmd.Parameters.AddWithValue("@vapellidopat", vapellidopat);
             cmd.Parameters.AddWithValue("@vapellidomat", vapellidomat);
+            cmd.Parameters.AddWithValue("@idpoliza", idpoliza);
 
 
             cn.getcn.Open();
