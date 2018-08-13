@@ -569,7 +569,7 @@ function InhabilitarCajas() {
 
     $("#vigenciaini_reg").prop("disabled", true);
     $("#vigenciafin_reg").prop("disabled", true);
-    $("#nropoliza_reg").prop("disabled", true);
+   // $("#nropoliza_reg").prop("disabled", true);
     //$("#fecnaci_reg").prop("disabled", true);
     
 }
@@ -640,9 +640,12 @@ function RegistrarPoliza_onclick() {
     var celular_reg = $("#celular_reg").val();
     var telefono_reg = $("#telefono_reg").val();
     var email_reg = $("#email_reg").val();
+    var nropoliza_reg = $("#nropoliza_reg").val();
 
     fecnaci_reg = fecnaci_reg_prev.toString();
+    //fecnaci_reg = Text.valueOf(fecnaci_reg_prev);
     
+    //alert(fecnaci_reg_prev);
 
     var sumaaseguradapost = (parseFloat(sumaasegurada_reg).toFixed(2)).toString();
     //alert(sumaaseguradapost);
@@ -650,7 +653,7 @@ function RegistrarPoliza_onclick() {
     $.ajax({
         type: "POST",
         url: "../Services/RegistrarPoliza",
-        data: "{smidtablatipopoliza:'" + parseInt(sp_Poliza) + "', vplaca:'" + placa_reg + "', smidmodelo:'" + parseInt(sp_ModeloVehiculo) + "', smaniofabrica:'" + parseInt(sp_anioFabricacion) + "', vmotor:'" + nromotor_reg + "', svin:'" + vin_reg + "', smnroasiento:'" + parseInt(nroasientos_reg) + "', vcolor:'" + color_reg + "', desumaasegurada:'" + sumaaseguradapost + "', smidtablaclasevehiculo:'" + parseInt(sp_TipoVehiculo) + "', idnrodocumento:'" + nrodocumento_reg + "', vnombres:'" + nombres_reg + "', vcelular:'" + celular_reg + "', vtelefono1:'" + telefono_reg + "', vemail:'" + email_reg + "', vreferencia:'" + referencia_reg + "', vnumero:'" + numeroubi_reg + "', vnombrevia:'" + direccion_reg + "', smIdTipoVia:'" + parseInt(sp_TipoVia) + "', smestadocivil:'" + parseInt(sp_EstadoCivil) + "', vdepartamento:'" + sp_Departamento + "', vprovincia:'" + sp_Provincia + "', vdistrito:'" + sp_Distrito + "', dfechanac:'" + fecnaci_reg + "', btsexo:'" + parseInt(sp_Sexo) + "', vapellidopat:'" + paterno_reg + "', vapellidomat:'" + materno_reg + "'}",
+        data: "{smidtablatipopoliza:'" + parseInt(sp_Poliza) + "', vplaca:'" + placa_reg + "', smidmodelo:'" + parseInt(sp_ModeloVehiculo) + "', smaniofabrica:'" + parseInt(sp_anioFabricacion) + "', vmotor:'" + nromotor_reg + "', svin:'" + vin_reg + "', smnroasiento:'" + parseInt(nroasientos_reg) + "', vcolor:'" + color_reg + "', desumaasegurada:'" + sumaaseguradapost + "', smidtablaclasevehiculo:'" + parseInt(sp_TipoVehiculo) + "', idnrodocumento:'" + nrodocumento_reg + "', vnombres:'" + nombres_reg + "', vcelular:'" + celular_reg + "', vtelefono1:'" + telefono_reg + "', vemail:'" + email_reg + "', vreferencia:'" + referencia_reg + "', vnumero:'" + numeroubi_reg + "', vnombrevia:'" + direccion_reg + "', smIdTipoVia:'" + parseInt(sp_TipoVia) + "', smestadocivil:'" + parseInt(sp_EstadoCivil) + "', vdepartamento:'" + sp_Departamento + "', vprovincia:'" + sp_Provincia + "', vdistrito:'" + sp_Distrito + "', dfechanac:'" + fecnaci_reg + "', btsexo:'" + parseInt(sp_Sexo) + "', vapellidopat:'" + paterno_reg + "', vapellidomat:'" + materno_reg + "', idpoliza:'" + nropoliza_reg + "'}",
         //data: "{smidtablatipopoliza:'" + parseInt(sp_Poliza) + "', vplaca:'" + placa_reg + "', smidmodelo:'" + parseInt(sp_ModeloVehiculo) + "'}",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -698,6 +701,28 @@ function validarEmail(elemento) {
 
     } 
 
+}
+
+function convertirDecimal(elemento) {
+  
+    
+    var numero1 = document.getElementById(elemento.id).value.trim();
+
+
+    if (numero1.length > 0) {
+        var numero2 = parseFloat(numero1)
+
+        var numero = numero2;
+        var conDecimal = numero.toFixed(2);
+        var newnum = conDecimal.toString();
+        $("#sumaasegurada_reg").val(newnum);
+    } else {
+        $("#sumaasegurada_reg").val("");
+    }
+
+    
+    
+    
 }
 
 
