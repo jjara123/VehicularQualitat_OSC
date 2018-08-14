@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatosPolizaEntity.cs" />
     <Compile Include="DepartamentoEntity.cs" />
     <Compile Include="DistritoEntity.cs" />
     <Compile Include="EstadoCivilEntity.cs" />

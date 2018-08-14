@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InspeccionController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PolizaController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -192,10 +193,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\form-elements.css" />
     <Content Include="Content\styleLayout.css" />
+    <Content Include="Content\styleRegInspeccion.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Genesis\Inspeccion\RegistroInspeccion.js" />
     <Content Include="Scripts\Genesis\Poliza\RegistroPoliza.js" />
     <Content Include="WebMethods\General_WM.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -251,6 +254,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Poliza\RegistroPoliza.cshtml" />
+    <Content Include="Views\Inspeccion\RegistroInspeccion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

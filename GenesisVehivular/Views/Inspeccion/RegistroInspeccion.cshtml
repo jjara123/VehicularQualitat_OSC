@@ -1,0 +1,632 @@
+﻿
+@{
+    ViewBag.Title = "RegistroInspeccion";
+}
+
+<link href="~/Content/styleRegInspeccion.css" rel="stylesheet" />
+
+<div class="top-content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 col-sm-offset-1 col-md-11 col-md-offset-2 col-lg-11 col-lg-offset-3 form-box">
+                <form role="form" action="" method="post" class="f1">
+
+                    <h3>Registro de Inspección</h3>
+
+                    <div class="f1-steps">
+                        <div class="f1-progress">
+                            <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
+                        </div>
+                        <div class="f1-step active">
+                            <div class="f1-step-icon"><i class="fas fa-user"></i></div>
+                            <p>Contratante</p>
+                        </div>
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fas fa-user-secret"></i></div>
+                            <p>Poliza e Inspección</p>
+                        </div>
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fas fa-car-side"></i></div>
+                            <p>Vehículo</p>
+                        </div>
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fab fa-reddit-alien"></i></div>
+                            <p>Accesorios</p>
+                        </div>
+                        <div class="f1-step">
+                            <div class="f1-step-icon"><i class="fas fa-file-contract"></i></div>
+                            <p>Datos Adicionales</p>
+                        </div>
+                    </div>
+                    <br>
+                    <fieldset>
+                        <h4>Datos del Contratante:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tipo Contratante:</label>
+                                    <input type="text" class="form-control input-sm" id="tipocontra_id">
+                                </div>
+                             </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tipo Doc.Identidad:</label>
+                                    <input type="text" class="form-control input-sm" id="tipodoc_id">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Dni:</label>
+                                    <input type="text" class="form-control input-sm" id="dni_id">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Nombres:</label>
+                                    <input type="text" class="form-control input-sm" id="nombre_id">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+
+                                <div class="form-group">
+                                    <label>Nacionalidad:</label>
+                                    <input type="text" class="form-control input-sm" id="nacionalidad_id">
+                                </div>
+                                <div class="form-group">
+                                    <label>Teléfono:</label>
+                                    <input type="text" class="form-control input-sm" id="fono_id">
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+
+                                <div class="form-group">
+                                    <label>Estado Civil:</label>
+                                    <select class="form-control input-sm" id="sp_ecivil">
+                                        <option value="">Casado</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Celular:</label>
+                                    <input type="text" class="form-control input-sm" id="cel_id">
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+
+
+                                <div class="form-group">
+                                    <label>Fecha Nacimiento:</label>
+                                    <input type="text" class="form-control input-sm" id="fecnaci_id">
+                                </div>
+                                <div class="form-group">
+                                    <label>Sexo:</label>
+                                    <input type="text" class="form-control input-sm" id="sexo_id">
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+
+
+                                <div class="form-group">
+                                    <label>E-mail:</label>
+                                    <input type="text" class="form-control input-sm" id="email_id">
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-next">Siguiente</button>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <h4>Datos de la Poliza:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Nro. Poliza:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Forma de Pago:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Plan/Producto:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Vigencia:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tipo Poliza:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Datos de la Inspección:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Fecha de Inspección:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha de Recordatorio:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Hora de Inspección:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Hora de Recordatorio:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Estado:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-previous">Anterior</button>
+                            <button type="button" class="btn btn-next">Siguiente</button>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <h4>Datos del Vehículo:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Clase Vehículo:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Color:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Puertas:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nro. Serie:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Marca:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Transmisión:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo Carrocería:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Kilometraje:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Modelo:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Forma Rodante:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nro. Motor:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Estado:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Año:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo Combustible:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Placa:</label>
+                                    <input type="text" class="form-control input-sm">
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-previous">Anterior</button>
+                            <button type="button" class="btn btn-next">Siguiente</button>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <h4>Accesorios del Vehículo:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Aire Acondicionado</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Lunas Eléctricas</label>
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Alarma</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Seguro de Ruedas</label>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Pestillos Eléctricos</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Llanta de Repuesto</label>
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Tapiz de Cuero</label>
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <h4>Accesorios Musicales:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Radio Original</label>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Parlantes Originales</label>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Otros Accesorios Musicales</label>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-xs-12">
+                                <div class="form-group">
+                                    <textarea row="3" class="form-control input-sm" placeholder="Observaciones..."></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <h4>Daños del Vehículo:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tipo de Daño:</label>
+                                    <select class="form-control input-sm">
+                                        <option>[Seleccione]</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <h4>Observaciones:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-xs-12">
+                                <div class="form-group">
+                                    <textarea row="3" class="form-control input-sm"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-previous">Anterior</button>
+                            <button type="button" class="btn btn-next">Siguiente</button>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <h4>Seleccionar Accesorios:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Faros Delanteros</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Roto</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Faros Posteriores</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Roto</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Faros Direccionales</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Roto</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Faros Neblineros</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Roto</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Equipo de Música</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Original</option>
+                                        <option value="1">Adaptado</option>
+                                        <option value="1">Fijo</option>
+                                        <option value="1">Máscara desmontable</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Espejos Externos</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Roto</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Spoilers</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Roto</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="option1" style="margin-top: 0.5rem;">
+                                    <label class="form-check-label">Aros</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Fierro</option>
+                                        <option value="1">Magnesio</option>
+                                        <option value="1">Aluminio</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Seleccionar Accesorios:</h4>
+                        <div style="height: 10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Máscara:</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Roto</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Pintura:</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Raspada</option>
+                                        <option value="1">Mal estado</option>
+                                    </select>
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Parachoques:</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Plástico</option>
+                                        <option value="1">Met. Pintado</option>
+                                        <option value="1">Met. Cromado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Carrocería:</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Buena</option>
+                                        <option value="1">Mal Estado</option>
+                                        <option value="1">Regular</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Consola:</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Regular</option>
+                                        <option value="1">Malo</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12">
+                                <div class="form-group">
+                                    <label>Tablero:</label>
+                                    <select class="form-control input-sm">
+                                        <option value="0">[Seleccionar]</option>
+                                        <option value="1">Bueno</option>
+                                        <option value="1">Regular</option>
+                                        <option value="1">Malo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="f1-buttons">
+                            <button type="button" class="btn btn-previous">Anterior</button>
+                            <button type="button" class="btn btn-next">Guardar</button>
+                        </div>
+
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="~/Scripts/Genesis/Inspeccion/RegistroInspeccion.js"></script>

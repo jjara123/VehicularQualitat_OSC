@@ -508,6 +508,90 @@ namespace Infraestrutura.Data.SqlServer
 
 
 
+        //***************************************************************************************************************************************
+        //REGISTRO Inspeccion *******************************************************************************************************************
+        //***************************************************************************************************************************************
+
+
+
+        //Listado Datos Poliza
+        public List<DatosPolizaEntity> ListarDatosPoliza_DAL(int idpolizap)
+        {
+            List<DatosPolizaEntity> listado = new List<DatosPolizaEntity>();
+
+            SqlCommand cmd = new SqlCommand("SP_VEH_ListarDatosPoliza", cn.getcn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@idpoliza", idpolizap);
+
+            cn.getcn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                DatosPolizaEntity clase = new DatosPolizaEntity();
+                clase.tipodoc = dr["tipodoc"].ToString();
+                clase.dni = dr["dni"].ToString();
+                clase.nombre = dr["nombre"].ToString();
+                clase.sexo = dr["sexo"].ToString();
+                clase.nacionalidad = dr["nacionalidad"].ToString();
+                clase.ecivil = dr["ecivil"].ToString();
+                clase.fecnaci = dr["fecnaci"].ToString();
+                clase.email = dr["email"].ToString();
+                clase.telf = dr["telf"].ToString();
+                clase.celu = dr["celu"].ToString();
+
+                clase.nropoliza = int.Parse(dr["nropoliza"].ToString());
+                clase.planproducto = dr["planproducto"].ToString();
+                clase.vigencia = dr["vigencia"].ToString();
+                clase.tipopoliza = dr["tipopoliza"].ToString();
+                clase.formapago = dr["formapago"].ToString();
+
+                clase.claseveh = dr["claseveh"].ToString();
+                clase.marcaveh = dr["marcaveh"].ToString();
+                clase.modeloveh = dr["modeloveh"].ToString();
+                clase.anio = dr["anio"].ToString();
+                clase.color = dr["color"].ToString();
+                clase.nromotor = dr["nromotor"].ToString();
+                clase.placa = dr["placa"].ToString();
+
+                listado.Add(clase);
+            }
+
+            dr.Close();
+            cmd.Dispose();
+            cn.getcn.Close();
+
+            return listado;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
