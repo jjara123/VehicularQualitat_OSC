@@ -185,7 +185,7 @@ namespace Dominio.Repositorio
             return dal.ListarDatosPoliza_DAL(idpoliza);
         }
 
-        //ok
+
 
 
 

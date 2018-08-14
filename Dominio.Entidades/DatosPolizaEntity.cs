@@ -32,8 +32,5 @@ namespace Dominio.Entidades
         public string color { get; set; }
         public string nromotor { get; set; }
         public string placa { get; set; }
-
-        //ok
     }
-}
 }

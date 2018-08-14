@@ -13,7 +13,5 @@ namespace GenesisVehivular.Controllers
         {
             return View();
         }
-
-        //ok
     }
 }
