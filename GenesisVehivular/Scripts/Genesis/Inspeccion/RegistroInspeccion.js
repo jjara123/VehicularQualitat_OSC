@@ -25,8 +25,6 @@ function DatosPoliza(idpoliza) {
 }
 
 function ListarDatosPoliza(data) {
-        
-  
 
         for (i = 0; i < data.length; i++) {            
             dni = data[0].dni;
@@ -38,7 +36,6 @@ function ListarDatosPoliza(data) {
             email = data[0].email;
             telf = data[0].telf;
             celu = data[0].celu;
-
         }
 
         //$("#tipocontra_id").val(nropoliza);
@@ -55,15 +52,6 @@ function ListarDatosPoliza(data) {
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 

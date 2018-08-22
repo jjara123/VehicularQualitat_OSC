@@ -185,7 +185,12 @@ namespace Dominio.Repositorio
             return dal.ListarDatosPoliza_DAL(idpoliza);
         }
 
+        //Listar DAtos de la inspeccion
 
+        public List<Inspeccion> ListarInspeccion_BL(string iidinspeccion, string idpoliza, string placa, string fechaini, string fechafin, string nombre, int NroDePagina, int RegPorPag)
+        {
+            return dal.ListarInspeccion_DAL(iidinspeccion, idpoliza,placa,fechaini,fechafin,nombre, NroDePagina, RegPorPag);
+        }
 
 
 
