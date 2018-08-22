@@ -389,8 +389,6 @@ function DatosPoliza(idpoliza) {
 }
 
 function ListarDatosPoliza(data) {
-        
-  
 
         for (i = 0; i < data.length; i++) {            
             dni = data[0].dni;

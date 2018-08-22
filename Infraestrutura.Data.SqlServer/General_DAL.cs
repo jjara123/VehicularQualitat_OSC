@@ -988,6 +988,50 @@ namespace Infraestrutura.Data.SqlServer
             return listado;
         }
 
+        //Listado Datos Poliza
+        public List<Inspeccion> ListarInspeccion_DAL(string iidinspeccion,string idpoliza, string placa, string fechaini, string fechafin, string nombre, int NroDePagina, int RegPorPag)
+        {
+            List<Inspeccion> listado = new List<Inspeccion>();
+
+            SqlCommand cmd = new SqlCommand("SP_VEH_ListarInspeccion", cn.getcn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@iidinspeccion", iidinspeccion);
+            cmd.Parameters.AddWithValue("@idpoliza", idpoliza);
+            cmd.Parameters.AddWithValue("@placa", placa);
+            cmd.Parameters.AddWithValue("@fechaini", fechaini);
+            cmd.Parameters.AddWithValue("@fechafin", fechafin);
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            cmd.Parameters.AddWithValue("@NroDePagina", NroDePagina);
+            cmd.Parameters.AddWithValue("@RegPorPag", RegPorPag);
+
+            cn.getcn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Inspeccion clase = new Inspeccion();
+                clase.iidinspeccion = dr["iidinspeccion"].ToString();
+                clase.idpoliza = dr["idpoliza"].ToString();
+                clase.Persona = dr["Persona"].ToString();
+                clase.dtfec_hora_registro = dr["dtfec_hora_registro"].ToString();
+                clase.vplaca = dr["vplaca"].ToString();
+                //clase.smidtablaestadoinspeccion = dr["smidtablaestadoinspeccion"].ToString();
+                clase.dfecha = dr["dfecha"].ToString();
+                clase.Marca = dr["Marca"].ToString();
+                clase.Modelo = dr["Modelo"].ToString();
+                clase.Estado = dr["Estado"].ToString();
+                clase.TotalRegistros = dr["TotalRegistros"].ToString();                
+                listado.Add(clase);
+            }
+
+            dr.Close();
+            cmd.Dispose();
+            cn.getcn.Close();
+
+            return listado;
+        }
 
 //***************************************************************************************************************************************
 //Reporte Inspeccion *******************************************************************************************************************

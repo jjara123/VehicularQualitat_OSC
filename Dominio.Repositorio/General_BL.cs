@@ -239,6 +239,10 @@ namespace Dominio.Repositorio
             return dal.ListarTipoDano_DAL();
         }
 
+        public List<Inspeccion> ListarInspeccion_BL(string iidinspeccion, string idpoliza, string placa, string fechaini, string fechafin, string nombre, int NroDePagina, int RegPorPag)
+        {
+            return dal.ListarInspeccion_DAL(iidinspeccion, idpoliza,placa,fechaini,fechafin,nombre, NroDePagina, RegPorPag);
+        }
 
         //Registrar Inspeccion
         public List<RespuestaPost> RegistrarInspeccion_BL(int smidpersona, int idpoliza, int idvehiculo, int sminacionalidad,
