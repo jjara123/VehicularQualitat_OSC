@@ -102,6 +102,12 @@ namespace Dominio.Repositorio
             return dal.ListarIdPoliza_DAL();
         }
 
+        //Listar Forma Pago
+        public List<FormaPagoEntity> ListarFormaPago_BL()
+        {
+            return dal.ListarFormaPago_DAL();
+        }
+
         //Registar Poliza
         public List<RespuestaPost> RegistrarPoliza_BL(
                 int smidtablatipopoliza,
@@ -132,7 +138,12 @@ namespace Dominio.Repositorio
                 int btsexo,
                 string vapellidopat,
                 string vapellidomat,
-                int idpoliza
+                int idpoliza,
+                string vnomcontacto,
+                int sminacionalidad,
+                int smidmarca,
+                int smidtipodocumento
+
 
             )
         {
@@ -165,18 +176,25 @@ namespace Dominio.Repositorio
                 btsexo,
                 vapellidopat,
                 vapellidomat,
-                idpoliza
+                idpoliza,
+                vnomcontacto,
+                sminacionalidad,
+                smidmarca,
+                smidtipodocumento
 
                 );
         }
 
+        //validar persona
+        public List<ValidarPersona> ValidarPersona_BL(string idnrodocumento)
+        {
+            return dal.ValidarPersona_DAL(idnrodocumento);
+        }
 
 
-//***************************************************************************************************************************************
-//REGISTRO INSPECCION *******************************************************************************************************************
-//***************************************************************************************************************************************
-
-
+        //***************************************************************************************************************************************
+        //REGISTRO INSPECCION *******************************************************************************************************************
+        //***************************************************************************************************************************************
 
 
         //Listado Datos Poliza
@@ -185,10 +203,94 @@ namespace Dominio.Repositorio
             return dal.ListarDatosPoliza_DAL(idpoliza);
         }
 
+        //Listado Tipo Combustible
+        public List<TipoCombustibleEntity> ListarTipoCombustible_BL()
+        {
+            return dal.ListarTipoCombustible_DAL();
+        }
+
+        //Listado Tipo Carrocería
+        public List<TipoCarroceriaEntity> ListarTipoCarroceria_BL()
+        {
+            return dal.ListarTipoCarroceria_DAL();
+        }
+
+        //Listado Estado Inspeccion
+        public List<EstadoInspeccionEntity> ListarEstadoInspeccion_BL()
+        {
+            return dal.ListarEstadoInspeccion_DAL();
+        }
+
+        //Listado Tipo Transmision
+        public List<TipoTransmisionEntity> ListarTipoTransmision_BL()
+        {
+            return dal.ListarTipoTransmision_DAL();
+        }
+
+        //Listado Clase Rodante
+        public List<ClaseRodanteEntity> ListarClaseRodante_BL()
+        {
+            return dal.ListarClaseRodante_DAL();
+        }
+
+        //Listado Tipo Daño
+        public List<TipoDanoEntity> ListarTipoDano_BL()
+        {
+            return dal.ListarTipoDano_DAL();
+        }
 
 
+        //Registrar Inspeccion
+        public List<RespuestaPost> RegistrarInspeccion_BL(int smidpersona, int idpoliza, int idvehiculo, int sminacionalidad,
+            int smestadocivil, string dfechanac, string vemail, string vtelefono1, string vcelular, int btsexo, int smidtablaformapago,
+            int smidtipovehiculo, int smidmarca, int smidmodelo, int smianiofabricacion, string vcolor, int smidtipotransmision,
+            int smidclaserodante, int smidtipocombustible, int inroasiento, int smidcarroceria, string vnromotor, string vplaca,
+            string vnroserie, int ikilometraje, string vVin,
+            int iidinspeccion, string fecInspeccion, string hrInspeccion, string fecRecordatorio, string hrRecordatorio,
+            int smidtablaestadoinspeccion,
+            int btaire, int btalarma, int btpestillos, int bttapizcuero, int btlunaselectricas, int btseguroruedas,
+            int btllantarep, int btequipomusicaorig, int btparlantesoriginal, int btaccesorios, string vobservacionesaccesorios,
+            int smidtablatipodano, string vobservaciones,
+            int smidestadofarodelante, int smcantfarodelante, int smidestadofaropost, int smcantfaropost,
+            int smestadofarodireccion, int smcantfarodireccion, int smcantfaroneblinero, int smestadofaroneblinero,
+            int smcantespejoexterno, int smestadoespejoexterno, int smestadospoiler, int smcantspoiler, int smtipoaros,
+            int smcantaros, int smestadomascara, int smpintura, int smtipoparachoque, int smcarroceria, int smconsola,
+            int smtablero, int btequipomusicafijo, string vinspector)
+
+        {
+            return dal.RegistrarInspeccion_DAL(smidpersona, idpoliza, idvehiculo, sminacionalidad,
+            smestadocivil, dfechanac, vemail, vtelefono1, vcelular, btsexo, smidtablaformapago,
+            smidtipovehiculo, smidmarca, smidmodelo, smianiofabricacion, vcolor, smidtipotransmision,
+            smidclaserodante, smidtipocombustible, inroasiento, smidcarroceria, vnromotor, vplaca,
+            vnroserie, ikilometraje, vVin,
+            iidinspeccion, fecInspeccion, hrInspeccion, fecRecordatorio, hrRecordatorio,
+            smidtablaestadoinspeccion,
+            btaire, btalarma, btpestillos, bttapizcuero, btlunaselectricas, btseguroruedas,
+            btllantarep, btequipomusicaorig, btparlantesoriginal, btaccesorios, vobservacionesaccesorios,
+            smidtablatipodano, vobservaciones,
+            smidestadofarodelante, smcantfarodelante, smidestadofaropost, smcantfaropost,
+            smestadofarodireccion, smcantfarodireccion, smcantfaroneblinero, smestadofaroneblinero,
+            smcantespejoexterno, smestadoespejoexterno, smestadospoiler, smcantspoiler, smtipoaros,
+            smcantaros, smestadomascara, smpintura, smtipoparachoque, smcarroceria, smconsola,
+            smtablero, btequipomusicafijo, vinspector);
+        }
+
+        //Listado Imagenes Inpeccion
+        public List<ImagenInspeccionEntity> ListarImgInspeccion_BL(int codinspeccion)
+        {
+            return dal.ListarImgInspeccion_DAL(codinspeccion);
+        }
 
 
+//***************************************************************************************************************************************
+//Reporte Inspeccion *******************************************************************************************************************
+//***************************************************************************************************************************************
+
+
+        public List<ReporteInspeccionEntity> ListarReporteInspeccion_BL(int iidinspeccion)
+        {
+            return dal.ListarReporteInspeccion_DAL(iidinspeccion);
+        }
 
 
 

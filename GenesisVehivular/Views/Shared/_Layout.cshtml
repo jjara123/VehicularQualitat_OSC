@@ -15,11 +15,52 @@
 </head>
 <body>
     <!-- Top menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-blues">
-        <a class="navbar-brand" href="#">Génesis Vehicular</a>
+    @*<nav class="navbar navbar-expand-lg navbar-dark bg-blues">
+        <a class="navbar-brand" href="@Url.Action("Inicio", "Vehicular")">Génesis Vehicular</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("RegistroPoliza", "Poliza")">Registro Poliza <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("RegistroInspeccion", "Inspeccion")">Registro Inspección</a>
+                </li>               
+            </ul>
+           
+        </div>
+    </nav>*@
+    <nav class="navbar navbar-expand-xl navbar-dark bg-blues">
+        <a class="navbar-brand" href="@Url.Action("Inicio", "Vehicular")">Génesis Vehicular</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample06">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link"  href="@Url.Action("RegistroPoliza", "Poliza")">Registro Poliza <span class="sr-only">(current)</span></a>
+                </li>
+                @*<li class="nav-item">
+                    <a class="nav-link" href="#">Registro Inspección</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>*@
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inspección</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown06">
+                        <a class="dropdown-item" href="@Url.Action("RegistroInspeccion", "Inspeccion")">Registro Inspección</a>
+                        <a class="dropdown-item" href="@Url.Action("ReporteInspeccion", "Inspeccion")">Reporte Inspección</a>                        
+                    </div>
+                </li>
+            </ul>
+            @*<form class="form-inline my-2 my-md-0">
+                <input class="form-control" type="text" placeholder="Search">
+            </form>*@
+        </div>
     </nav>
     <div>
         @RenderBody()

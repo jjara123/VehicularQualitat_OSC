@@ -119,6 +119,13 @@ namespace GenesisVehivular.Controllers
             return Json(listado);
         }
 
+        public ActionResult ListarFormaPago()
+        {
+            General_BL bl = new General_BL();
+            List<FormaPagoEntity> listado = bl.ListarFormaPago_BL();
+            return Json(listado);
+        }
+
         public ActionResult RegistrarPoliza(
                 int smidtablatipopoliza,
                 string vplaca,
@@ -147,7 +154,11 @@ namespace GenesisVehivular.Controllers
                 int btsexo,
                 string vapellidopat,
                 string vapellidomat,
-                int idpoliza
+                int idpoliza,
+                string vnomcontacto,
+                int sminacionalidad,
+                int smidmarca,
+                int smidtipodocumento
 
             )
         {
@@ -181,23 +192,129 @@ namespace GenesisVehivular.Controllers
                 btsexo,
                 vapellidopat,
                 vapellidomat,
-                idpoliza
-
+                idpoliza,
+                vnomcontacto,
+                sminacionalidad,
+                smidmarca,
+                smidtipodocumento
 
                 );
             return Json(listado);
         }
 
+        public ActionResult ValidarPersona(string idnrodocumento)
+        {
+            General_BL bl = new General_BL();
+            List<ValidarPersona> listado = bl.ValidarPersona_BL(idnrodocumento);
+            return Json(listado);
+        }
 
 
-//***************************************************************************************************************************************
-//REGISTRO INSPECCION *******************************************************************************************************************
-//***************************************************************************************************************************************
+
+        //***************************************************************************************************************************************
+        //REGISTRO INSPECCION *******************************************************************************************************************
+        //***************************************************************************************************************************************
 
         public ActionResult ListarDatosPoliza(int idpoliza)
         {
             General_BL bl = new General_BL();
             List<DatosPolizaEntity> listado = bl.ListarDatosPoliza_BL(idpoliza);
+            return Json(listado);
+        }
+
+        public ActionResult ListarTipoCombustible()
+        {
+            General_BL bl = new General_BL();
+            List<TipoCombustibleEntity> listado = bl.ListarTipoCombustible_BL();
+            return Json(listado);
+        }
+
+        public ActionResult ListarEstadoInspeccion()
+        {
+            General_BL bl = new General_BL();
+            List<EstadoInspeccionEntity> listado = bl.ListarEstadoInspeccion_BL();
+            return Json(listado);
+        }
+
+        public ActionResult ListarTipoCarroceria()
+        {
+            General_BL bl = new General_BL();
+            List<TipoCarroceriaEntity> listado = bl.ListarTipoCarroceria_BL();
+            return Json(listado);
+        }
+
+        public ActionResult ListarTipoTransmision()
+        {
+            General_BL bl = new General_BL();
+            List<TipoTransmisionEntity> listado = bl.ListarTipoTransmision_BL();
+            return Json(listado);
+        }
+
+        public ActionResult ListarClaseRodante()
+        {
+            General_BL bl = new General_BL();
+            List<ClaseRodanteEntity> listado = bl.ListarClaseRodante_BL();
+            return Json(listado);
+        }
+
+        public ActionResult ListarTipoDano()
+        {
+            General_BL bl = new General_BL();
+            List<TipoDanoEntity> listado = bl.ListarTipoDano_BL();
+            return Json(listado);
+        }
+
+        public ActionResult RegistrarInspeccion(int smidpersona, int idpoliza, int idvehiculo, int sminacionalidad,
+            int smestadocivil, string dfechanac, string vemail, string vtelefono1, string vcelular, int btsexo, int smidtablaformapago,
+            int smidtipovehiculo, int smidmarca, int smidmodelo, int smianiofabricacion, string vcolor, int smidtipotransmision,
+            int smidclaserodante, int smidtipocombustible, int inroasiento, int smidcarroceria, string vnromotor, string vplaca,
+            string vnroserie, int ikilometraje, string vVin,
+            int iidinspeccion, string fecInspeccion, string hrInspeccion, string fecRecordatorio, string hrRecordatorio,
+            int smidtablaestadoinspeccion,
+            int btaire, int btalarma, int btpestillos, int bttapizcuero, int btlunaselectricas, int btseguroruedas,
+            int btllantarep, int btequipomusicaorig, int btparlantesoriginal, int btaccesorios, string vobservacionesaccesorios,
+            int smidtablatipodano, string vobservaciones,
+            int smidestadofarodelante, int smcantfarodelante, int smidestadofaropost, int smcantfaropost,
+            int smestadofarodireccion, int smcantfarodireccion, int smcantfaroneblinero, int smestadofaroneblinero,
+            int smcantespejoexterno, int smestadoespejoexterno, int smestadospoiler, int smcantspoiler, int smtipoaros,
+            int smcantaros, int smestadomascara, int smpintura, int smtipoparachoque, int smcarroceria, int smconsola,
+            int smtablero, int btequipomusicafijo, string vinspector)
+        {
+            General_BL bl = new General_BL();
+            List<RespuestaPost> listado = bl.RegistrarInspeccion_BL(smidpersona, idpoliza, idvehiculo, sminacionalidad,
+            smestadocivil, dfechanac, vemail, vtelefono1, vcelular, btsexo, smidtablaformapago,
+            smidtipovehiculo, smidmarca, smidmodelo, smianiofabricacion, vcolor, smidtipotransmision,
+            smidclaserodante, smidtipocombustible, inroasiento, smidcarroceria, vnromotor, vplaca,
+            vnroserie, ikilometraje, vVin,
+            iidinspeccion, fecInspeccion, hrInspeccion, fecRecordatorio, hrRecordatorio,
+            smidtablaestadoinspeccion,
+            btaire, btalarma, btpestillos, bttapizcuero, btlunaselectricas, btseguroruedas,
+            btllantarep, btequipomusicaorig, btparlantesoriginal, btaccesorios, vobservacionesaccesorios,
+            smidtablatipodano, vobservaciones,
+            smidestadofarodelante, smcantfarodelante, smidestadofaropost, smcantfaropost,
+            smestadofarodireccion, smcantfarodireccion, smcantfaroneblinero, smestadofaroneblinero,
+            smcantespejoexterno, smestadoespejoexterno, smestadospoiler, smcantspoiler, smtipoaros,
+            smcantaros, smestadomascara, smpintura, smtipoparachoque, smcarroceria, smconsola,
+            smtablero, btequipomusicafijo, vinspector);
+            return Json(listado);
+        }
+
+        public ActionResult ListarImgInspeccion(int codinspeccion)
+        {
+            General_BL bl = new General_BL();
+            List<ImagenInspeccionEntity> listado = bl.ListarImgInspeccion_BL(codinspeccion);
+            return Json(listado);
+        }
+
+
+//***************************************************************************************************************************************
+//Reporte Inspeccion *******************************************************************************************************************
+//***************************************************************************************************************************************
+
+        public ActionResult ListarReporteInspeccion(int iidinspeccion)
+        {
+            General_BL bl = new General_BL();
+            List<ReporteInspeccionEntity> listado = bl.ListarReporteInspeccion_BL(iidinspeccion);
             return Json(listado);
         }
 

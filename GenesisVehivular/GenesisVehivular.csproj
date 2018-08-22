@@ -174,12 +174,21 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PolizaController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\t_fotoController.cs" />
+    <Compile Include="Controllers\VehicularController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808211537177_fotoquery.cs" />
+    <Compile Include="Migrations\201808211537177_fotoquery.Designer.cs">
+      <DependentUpon>201808211537177_fotoquery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\t_foto.cs" />
+    <Compile Include="Models\VEHDb_Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="WebMethods\General_WM.aspx.cs">
@@ -193,15 +202,30 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\form-elements.css" />
+    <Content Include="Content\ReporteInspeccion.css" />
     <Content Include="Content\styleLayout.css" />
     <Content Include="Content\styleRegInspeccion.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\car.png" />
+    <Content Include="Img\icon-calendar.png" />
+    <Content Include="Img\icon-clock.png" />
     <Content Include="Scripts\Genesis\Inspeccion\RegistroInspeccion.js" />
+    <Content Include="Scripts\Genesis\Inspeccion\ReporteInspeccion.js" />
     <Content Include="Scripts\Genesis\Poliza\RegistroPoliza.js" />
     <Content Include="WebMethods\General_WM.aspx" />
+    <None Include="Properties\PublishProfiles\1.pubxml" />
+    <None Include="Properties\PublishProfiles\2.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_210818.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_210818_2.pubxml" />
+    <None Include="Properties\PublishProfiles\pb_210818_5.pubxml" />
+    <None Include="Properties\PublishProfiles\pb_210818_6.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_220818.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_220818_1.pubxml" />
+    <None Include="Properties\PublishProfiles\pb_220818_2.pubxml" />
+    <None Include="Properties\PublishProfiles\pb_220818_3.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\icons.js" />
@@ -257,6 +281,15 @@
     <Content Include="Views\Poliza\RegistroPoliza.cshtml" />
     <Content Include="Views\Inspeccion\RegistroInspeccion.cshtml" />
     <Content Include="Views\Consultas\Inspeccion.cshtml" />
+    <Content Include="Views\t_foto\Create.cshtml" />
+    <Content Include="Views\t_foto\Delete.cshtml" />
+    <Content Include="Views\t_foto\Details.cshtml" />
+    <Content Include="Views\t_foto\Edit.cshtml" />
+    <Content Include="Views\t_foto\Index.cshtml" />
+    <Content Include="Views\Inspeccion\GuardarImagen.cshtml" />
+    <Content Include="Views\Shared\_vacia.cshtml" />
+    <Content Include="Views\Vehicular\Inicio.cshtml" />
+    <Content Include="Views\Inspeccion\ReporteInspeccion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -279,6 +312,11 @@
       <Project>{a768b438-0320-47a7-a27b-ad03f442422d}</Project>
       <Name>Dominio.Repositorio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808211537177_fotoquery.resx">
+      <DependentUpon>201808211537177_fotoquery.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
