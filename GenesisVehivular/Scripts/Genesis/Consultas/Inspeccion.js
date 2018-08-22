@@ -29,7 +29,7 @@ function ListarGrillaInspeccion(data) {
     var regporpag = "10";
     var TotalRegistros = "1";
 
-    if (data < parseInt(regporpag)) {
+    if (data.length < parseInt(regporpag)) {
         select.empty();
         for (i = 1; i == 1; i++) {
             select.append("<option value" + i + ">" + i + "</option>");
@@ -57,7 +57,8 @@ function ListarGrillaInspeccion(data) {
                 "<td>Fecha Programación</td>"+
                 "<td>Marca</td>"+
                 "<td>Modelo</td>"+
-                "<td>Estado</td>"+
+                "<td>Estado</td>" +
+                "<td></td>" +
                 "</tr>"+
                 "</thead>");    
     
@@ -77,6 +78,8 @@ function ListarGrillaInspeccion(data) {
                         "<td>" + data[i].Marca + "</td>" +
                         "<td>" + data[i].Modelo + "</td>" +
                         "<td>" + data[i].Estado + "</td>" +
+                        "<td><input type=button onclick = Link('" + data[i].iidinspeccion + "')  value=Seleccionar class=btn_customer btn-secondary/></td>" +
+                        
                         "</tr>");                            
         }               
         tabla.append("</tbody>")
@@ -97,7 +100,16 @@ function ListarGrillaInspeccion(data) {
     
 }
 
-
+//Link con el metodo POST
+function Link(idinspeccion) {
+    //window.location = "../inspeccion/registroinspeccion?alarmid=" + alarmid;
+    alert(idinspeccion);
+    window.location = "../inspeccion/registroinspeccion";
+    //$.redirect(surl,
+    //{
+    //    alarmhistoryid: alarmid, evento: even
+    //}, "post", "");
+}
 function ListarGrilla() {
 
     var iidinspeccion = $("#idinspeccion").val();
