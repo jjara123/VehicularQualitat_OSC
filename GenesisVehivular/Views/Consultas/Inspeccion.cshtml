@@ -57,28 +57,28 @@
 
 <div style="width:95%;margin:auto; background:#fff;">
 
-    <table>
+    @*<table>
         <tfoot>
             <tr>
-                <td colspan="2">
-                    <div class="row">
-                        <div>
-                            <input id="Anterior" type="button" value="<" style="width:25px;height:35px;text-align:center" />
+                <td colspan="2">*@
+                    <div class="row" style="padding-left:91%;">
+                        <div>                                                      
+                            <input class="btn_filter btn-secondary btn_left" id="Anterior" type="button" value="<" />
                         </div>
                         <div>
-                            <select id="Pagina" name="Pagina" style="border-radius:5px;width:40px;height:35px;text-align:center;">
+                            <select class="form-control input-sm" id="Pagina" name="Pagina" style="border-radius:0;">
                                 <option value="1">1</option>
                             </select>
                         </div>
                         <div>
-                            <input id="Siguiente" type="button" value=">" style="width:25px;height:35px;text-align:center" />
+                            <input class="btn_filter btn-secondary btn_rigth" id="Siguiente" type="button" value=">" />
                         </div>
                     </div>
 
-                </td>
+                @*</td>
             </tr>
         </tfoot>
-    </table>
+    </table>*@
 
     <table class="table table-sm table-hover" id="GridListar">
         @*<thead class="bg-blues">

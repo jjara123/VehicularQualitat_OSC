@@ -80,9 +80,9 @@ window.onload = function () {
             //aparece campo nombre contacto
             $('#form_nomcontacto').removeClass('Ocultar');
             //aparece campo nombre contacto
-            $('#nombres_reg').val(' ');
-            $('#paterno_reg').val(' ');
-            $('#materno_reg').val(' ');
+            $('#nombres_reg').val('-');
+            $('#paterno_reg').val('-');
+            $('#materno_reg').val('-');
             $('#telefono_reg').val(0);
             $('#celular_reg').val(0);
 
@@ -658,8 +658,8 @@ function RegistrarPoliza_onclick() {
         var vnomcontacto = $("#nomcontacto_reg").val(); //de ser ruc
         sp_EstadoCivil = 1;
         nombres_reg = $("#rsocial_reg").val();
-        paterno_reg = " ";
-        materno_reg = " ";
+        paterno_reg = "-";
+        materno_reg = "-";
         telefono_reg = 0;
         celular_reg = 0;
 
@@ -836,9 +836,9 @@ function validarPersonaSucces(data) {
         //aparece campo nombre contacto
         $('#form_nomcontacto').removeClass('Ocultar');
         //aparece campo nombre contacto
-        $('#nombres_reg').val(' ');
-        $('#paterno_reg').val(' ');
-        $('#materno_reg').val(' ');
+        $('#nombres_reg').val('-');
+        $('#paterno_reg').val('-');
+        $('#materno_reg').val('-');
         $('#telefono_reg').val(0);
         $('#celular_reg').val(0);
 

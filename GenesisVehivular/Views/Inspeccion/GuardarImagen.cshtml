@@ -58,6 +58,7 @@
 </div>*@
 
 <script>
+
     var f = new Date();
     var dia = "" + f.getDate();
     var mes = "" + (f.getMonth() + 1)
@@ -72,7 +73,7 @@
 
     var fecha = (f.getFullYear() + "-" + mes + "-" + dia + ' ' + hora);
 
-    $("#idCodInspeccion").val(1);
+    $("#idCodInspeccion").val(idinspeccion_input);
     $("#idHora").val(fecha);
 
 

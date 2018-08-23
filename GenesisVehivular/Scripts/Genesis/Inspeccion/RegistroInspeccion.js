@@ -1,8 +1,16 @@
 ﻿var gbid = 0;
+var idinspeccion_input;
+
+var global_smidpersona;
+var global_idpoliza;
+var global_idvehiculo;
 
 function InicioPoliza() {
 
-    window.onload = function () {
+    window.onload = function () {       
+
+
+        idinspeccion_input = getParameterByName('id');      
 
         
         Spinner_Nacionalidad();
@@ -19,12 +27,21 @@ function InicioPoliza() {
         Spinner_ClaseRodante();
         Spinner_TipoDano();
         DeshabilitarCajas();
-        DatosPoliza(1);
-        ListarImgInspeccion(1);
+        DatosPoliza(idinspeccion_input);
+        ListarImgInspeccion(idinspeccion_input);
 
     }
 
 }
+
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 
 function fechaActual() {
 
@@ -426,8 +443,15 @@ function ListarDatosPoliza(data) {
             fecinspeccion = data[0].fecinspeccion;
             hrinspeccion = data[0].hrinspeccion;
             estado = data[0].estado;
+
+            smidpersona = data[0].smidpersona;
+            idpoliza = data[0].idpoliza;
+            idvehiculo = data[0].idvehiculo;
         }
 
+        global_smidpersona = smidpersona;
+        global_idpoliza = idpoliza;
+        global_idvehiculo = idvehiculo;
 
         $("#sp_TipoVehiculo").val(claseveh);
         $("#sp_MarcaVehiculo").val(marcaveh);
@@ -541,11 +565,11 @@ function DeshabilitarCajas(){
 
 
 //Regsitrar Inspeccion:
-function RegistrarInspeccion_onclick() {
+function RegistrarInspeccion_onclick() {  
 
-    var smidpersona = 1;
-    var idpoliza = 1;
-    var idvehiculo = 1;
+    var smidpersona = global_smidpersona;
+    var idpoliza = global_idpoliza;
+    var idvehiculo = global_idvehiculo;
     var sminacionalidad = $("#sp_Nacionalidad").val();
     var smestadocivil = $("#sp_EstadoCivil").val();
     var dfechanac = $("#fecnaci_id").val();

@@ -103,8 +103,8 @@ function ListarGrillaInspeccion(data) {
 //Link con el metodo POST
 function Link(idinspeccion) {
     //window.location = "../inspeccion/registroinspeccion?alarmid=" + alarmid;
-    alert(idinspeccion);
-    window.location = "../inspeccion/registroinspeccion";
+    
+    window.location = "../Inspeccion/RegistroInspeccion?id=" + idinspeccion;
     //$.redirect(surl,
     //{
     //    alarmhistoryid: alarmid, evento: even
