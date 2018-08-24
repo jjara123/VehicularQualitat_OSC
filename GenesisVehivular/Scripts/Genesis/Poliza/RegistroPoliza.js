@@ -127,9 +127,10 @@
     });
 
     //$("#fecnaci_reg").datepicker();
-
+    
     idpoliza_input = getParameterByName('idpoliza');
     if (idpoliza_input.length > 0) {
+        
         DatosPoliza(idpoliza_input);
     }
     
@@ -164,6 +165,8 @@ function DatosPoliza(idpoliza){
 }
 
 function llenar_registro_poliza(data) {
+
+    
     
     //---DATOS DEL VEHICULO
     $("#placa_reg").val(data[0].placa);

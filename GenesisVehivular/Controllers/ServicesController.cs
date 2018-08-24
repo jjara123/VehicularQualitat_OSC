@@ -225,6 +225,14 @@ namespace GenesisVehivular.Controllers
             return Json(respuesta);
         }
 
+        public ActionResult DatosPoliza(int idpoliza)
+        {
+            General_BL bl = new General_BL();
+            List<ReportePolizaEntity> listado = bl.ReportePoliza_BL(idpoliza);
+            return Json(listado);
+        }
+
+
 
         //***************************************************************************************************************************************
         //REGISTRO INSPECCION *******************************************************************************************************************
@@ -236,6 +244,8 @@ namespace GenesisVehivular.Controllers
             List<DatosPolizaEntity> listado = bl.ListarDatosPoliza_BL(idpoliza);
             return Json(listado);
         }
+
+
 
         public ActionResult ListarTipoCombustible()
         {

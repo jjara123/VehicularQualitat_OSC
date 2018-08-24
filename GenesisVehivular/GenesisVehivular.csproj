@@ -224,6 +224,7 @@
     <Content Include="WebMethods\General_WM.aspx" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Properties\PublishProfiles\2.pubxml" />
+    <None Include="Properties\PublishProfiles\20180824.pubxml" />
     <None Include="Properties\PublishProfiles\PB_210818.pubxml" />
     <None Include="Properties\PublishProfiles\PB_210818_2.pubxml" />
     <None Include="Properties\PublishProfiles\pb_210818_5.pubxml" />

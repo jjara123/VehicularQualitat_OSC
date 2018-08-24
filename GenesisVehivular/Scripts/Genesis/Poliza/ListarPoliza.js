@@ -49,15 +49,12 @@ function ListarGrillaPoliza(data) {
     var TotalRegistros = "1";
     var i = 1;
 
-    if (data.length > 1) {
-        if (parseInt(data[1].TotalRegistros) > parseInt(regporpag)) {
+    select.empty();
 
-            for (i = 1; i <= Math.ceil(parseInt(data[1].TotalRegistros) / parseInt(regporpag)) ; i++) {
-                select.append("<option value = " + i + ">" + i + "</option>");
-            }
-        }
-        else {
-            select.append("<option value = '1'> 1</option>");
+    if (parseInt(data[1].TotalRegistros) > parseInt(regporpag)) {
+
+        for (i = 1; i <= Math.ceil(parseInt(data[1].TotalRegistros) / parseInt(regporpag)) ; i++) {
+            select.append("<option value = " + i + ">" + i + "</option>");
         }
     }
     else {
@@ -65,6 +62,7 @@ function ListarGrillaPoliza(data) {
     }
 
     $("#Pagina").val(pagina);
+
 
     var tabla = $("#GridListar");
     tabla.empty();
@@ -163,30 +161,29 @@ $("select[name=Pagina]").change(function () {
 
 });
 
-
 $("#Anterior").click(function () {
     c = $("#Pagina").val();
     c = parseInt(c) - 1;
+
     if (c > 0) {
         $("#Pagina").val(c);
-
         ListarGrilla();
     }
-    else {
-        c = 1;
-    }
-
 
 });
 
 $("#Siguiente").click(function () {
     c = $("#Pagina").val();
     c = parseInt(c) + 1;
+    var a = $('select option').size();
 
-    $("#Pagina").val(c);
-    ListarGrilla();
+    if (c <= a) {
+        $("#Pagina").val(c);
+        ListarGrilla();
+    }
 
 });
+
 
 //Link con el metodo POST
 //function Link(idinspeccion) {
