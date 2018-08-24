@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvinciaEntity.cs" />
     <Compile Include="ReporteInspeccionEntity.cs" />
+    <Compile Include="ReportePolizaEntity.cs" />
     <Compile Include="RespuestaPost.cs" />
     <Compile Include="SexoEntity.cs" />
     <Compile Include="TipoCarroceriaEntity.cs" />
