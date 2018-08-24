@@ -16,6 +16,11 @@ namespace GenesisVehivular.Controllers
             return View();
         }
 
+        public ActionResult ListarPoliza()
+        {
+            return View();
+        }
+
 
     }
 }

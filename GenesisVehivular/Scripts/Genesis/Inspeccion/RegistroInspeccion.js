@@ -34,6 +34,44 @@ function InicioPoliza() {
 
 }
 
+function GuardarFoto() {
+    var f = new Date();
+    var dia = "" + f.getDate();
+    var mes = "" + (f.getMonth() + 1)
+    var hora = f.getHours() + ":" + f.getMinutes() + ":" + f.getSeconds() + ".000";
+
+    if (parseInt(dia) < 10) {
+        dia = "0" + dia;
+    }
+    if (parseInt(mes) < 10) {
+        mes = "0" + mes;
+    }
+
+    //Variables Input:
+    var cod_inspeccion = idinspeccion_input;
+    var fecha = (f.getFullYear() + "-" + mes + "-" + dia + ' ' + hora);
+    var data = new FormData();
+    jQuery.each(jQuery('#file')[0].files, function (i, file) {
+        data.append('file-' + i, file);
+    });
+
+
+    //jQuery.ajax({
+    //    url: 'php/upload.php',
+    //    data: data,
+    //    cache: false,
+    //    contentType: false,
+    //    processData: false,
+    //    type: 'POST',
+    //    success: function (data) {
+    //        alert(data);
+    //    }
+    //});
+
+
+    alert(data);
+}
+
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -596,7 +634,7 @@ function RegistrarInspeccion_onclick() {
     var ikilometraje = $("#kilometrajeveh_id").val();
     var vVin = $("#vinveh_id").val();
 
-    var iidinspeccion = 1;
+    var iidinspeccion = idinspeccion_input;
     var fecInspeccion = $("#fecinspeccion_id").val();
     var hrInspeccion = $("#hrinspeccion_id").val();
     var fecRecordatorio = $("#fecrecordatorio_id").val();
@@ -695,17 +733,17 @@ function RegistrarInspeccion_onclick() {
         $.ajax({
             type: "POST",
             url: "../Services/RegistrarInspeccion",
-            data: "{smidpersona:'" + smidpersona + "', idpoliza:'" + idpoliza + "', idvehiculo:'" + idvehiculo
+            data: "{smidpersona:'" + parseInt(smidpersona) + "', idpoliza:'" + parseInt(idpoliza) + "', idvehiculo:'" + parseInt(idvehiculo)
                 + "', sminacionalidad:'" + sminacionalidad + "', smestadocivil:'" + smestadocivil
                 + "', dfechanac:'" + dfechanac + "', vemail:'" + vemail + "', vtelefono1:'" + vtelefono1
                 + "', vcelular:'" + vcelular + "', btsexo:'" + btsexo + "', smidtablaformapago:'" + smidtablaformapago
-                + "', smidtipovehiculo:'" + smidtipovehiculo + "', smidmarca:'" + smidmarca
+                + "', smidtipovehiculo:'" + parseInt(28) + "', smidmarca:'" + smidmarca
                 + "', smidmodelo:'" + smidmodelo + "', smianiofabricacion:'" + smianiofabricacion
                 + "', vcolor:'" + vcolor + "', smidtipotransmision:'" + smidtipotransmision + "', smidclaserodante:'" + smidclaserodante
                 + "', smidtipocombustible:'" + smidtipocombustible + "', inroasiento:'" + inroasiento + "', smidcarroceria:'" + smidcarroceria
                 + "', vnromotor:'" + vnromotor + "', vplaca:'" + vplaca + "', vnroserie:'" + vnroserie
                 + "', ikilometraje:'" + ikilometraje + "', vVin:'" + vVin
-                + "', iidinspeccion:'" + iidinspeccion + "', fecInspeccion:'" + fecInspeccion
+                + "', iidinspeccion:'" + parseInt(iidinspeccion) + "', fecInspeccion:'" + fecInspeccion
                 + "', hrInspeccion:'" + hrInspeccion + "', fecRecordatorio:'" + fecRecordatorio
                 + "', hrRecordatorio:'" + hrRecordatorio + "', smidtablaestadoinspeccion:'" + smidtablaestadoinspeccion
                 + "', btaire:'" + btaire + "', btalarma:'" + btalarma + "', btpestillos:'" + btpestillos
@@ -750,27 +788,37 @@ function ResponseCrearSucces(data) {
 
     if (respuesta == "true") {
         alert("Se registró satisfactoriamente");
+        Link(idinspeccion_input);
+
     } else {
         alert("Lo sentimos, ocurrió un problema al momento de registrar la Inspeccion");
     }
 
 }
 
-//Guardar Foto
-function guardarFoto() {
-    var laURLDeLaVista = 'GuardarImagen';
-    $.ajax({
-        cache: false,
-        async: true,
-        type: "GET",
-        url: laURLDeLaVista,
-        data: {},
-        success: function (response) {
-            $('#resultado').html('');
-            $('#resultado').html(response);
-        }
-    });
+//Redireccionar:
+function Link(idinspeccion) {
+
+    window.location = "../Inspeccion/ReporteInspeccion?id=" + idinspeccion;
+
 }
+
+
+//Guardar Foto
+//function guardarFoto() {
+//    var laURLDeLaVista = 'GuardarImagen';
+//    $.ajax({
+//        cache: false,
+//        async: true,
+//        type: "GET",
+//        url: laURLDeLaVista,
+//        data: {},
+//        success: function (response) {
+//            $('#resultado').html('');
+//            $('#resultado').html(response);
+//        }
+//    });
+//}
 
 //Listar Imagenes
 function ListarImgInspeccion(codinspeccion) {

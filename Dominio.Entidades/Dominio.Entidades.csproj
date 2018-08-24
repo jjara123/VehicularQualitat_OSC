@@ -50,6 +50,7 @@
     <Compile Include="IdPolizaEntity.cs" />
     <Compile Include="ImagenInspeccionEntity.cs" />
     <Compile Include="Inspeccion.cs" />
+    <Compile Include="ListarPolizaEntity.cs" />
     <Compile Include="MarcaVehiculoEntity.cs" />
     <Compile Include="ModeloVehiculoEntity.cs" />
     <Compile Include="NacionalidadEntity.cs" />

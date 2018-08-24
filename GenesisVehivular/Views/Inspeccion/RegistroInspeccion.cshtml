@@ -710,7 +710,7 @@
                           
                             <div class="col-md-6">
                                 <div>
-                                    <button onclick="guardarFoto()" class="btn btn-primary" style="background-color: #0489D0;" data-toggle="modal" data-target="#foto">
+                                    <button @*onclick="guardarFoto()"*@ class="btn btn-primary" style="background-color: #0489D0;" data-toggle="modal" data-target="#foto">
                                         Agregar Imagen&nbsp;&nbsp;
                                         <i class="fas fa-camera"></i>
                                     </button>
@@ -731,21 +731,28 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div id="resultado"></div>
-                                        @*<div style="width: 80%; margin: auto;">
-                                            <div class="form-group">
-                                                <input type="file" class="form-control-file form-control-sm" id="exampleFormControlFile1">
+                                        @*<div id="resultado"></div>*@
+                                        @*<div class="form-group">
+                                            <label>Código de Inspección</label>
+                                            <input type="text" class="form-control input-sm" />
+                                        </div><div class="form-group">
+                                            <label>Hora</label>
+                                            <input type="text" class="form-control input-sm" />
+                                        </div>*@
+                                        <div style="width: 80%; margin: auto;">
+                                            <div class="form-group">                                                
+                                                <input type="file" name="file" id="file" class="form-control-file form-control-sm"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Ingresa una descripción</label>
                                             <textarea class="form-control form-control-sm" id="" rows="3"></textarea>
-                                        </div>*@
+                                        </div>
                                     </div>
-                                    @*<div class="modal-footer">
+                                    <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" style="background-color: #0489D0;">Guardar</button>
-                                    </div>*@
+                                        <button onclick="GuardarFoto()" type="button" class="btn btn-primary" style="background-color: #0489D0;">Guardar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

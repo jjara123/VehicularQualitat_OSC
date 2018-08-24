@@ -202,6 +202,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\form-elements.css" />
+    <Content Include="Content\Modulo\Consulta\Poliza.css" />
     <Content Include="Content\ReporteInspeccion.css" />
     <Content Include="Content\Modulo\Consulta\Inspeccion.css" />
     <Content Include="Content\styleLayout.css" />
@@ -216,7 +217,10 @@
     <Content Include="Img\icon-clock.png" />
     <Content Include="Scripts\Genesis\Inspeccion\RegistroInspeccion.js" />
     <Content Include="Scripts\Genesis\Inspeccion\ReporteInspeccion.js" />
+    <Content Include="Scripts\Genesis\Poliza\ListarPoliza.js" />
     <Content Include="Scripts\Genesis\Poliza\RegistroPoliza.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="WebMethods\General_WM.aspx" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Properties\PublishProfiles\2.pubxml" />
@@ -228,6 +232,11 @@
     <None Include="Properties\PublishProfiles\PB_220818_1.pubxml" />
     <None Include="Properties\PublishProfiles\pb_220818_2.pubxml" />
     <None Include="Properties\PublishProfiles\pb_220818_3.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_230818.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_230818_2.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_230818_F.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_230818_F2.pubxml" />
+    <None Include="Properties\PublishProfiles\PB_230818_F3.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\icons.js" />
@@ -292,6 +301,7 @@
     <Content Include="Views\Shared\_vacia.cshtml" />
     <Content Include="Views\Vehicular\Inicio.cshtml" />
     <Content Include="Views\Inspeccion\ReporteInspeccion.cshtml" />
+    <Content Include="Views\Poliza\ListarPoliza.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

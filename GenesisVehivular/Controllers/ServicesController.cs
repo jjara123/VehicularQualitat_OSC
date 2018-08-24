@@ -210,10 +210,18 @@ namespace GenesisVehivular.Controllers
         }
 
 
+        //listar Poliza
+        public ActionResult ListarPoliza(string idpoliza, string placa, string fechaini, string fechafin, string nombre, int NroDePagina, int RegPorPag)
+        {
+            General_BL bl = new General_BL();
+            List<ListarPolizaEntity> listado = bl.ListarPoliza_BL(idpoliza, placa, fechaini, fechafin, nombre, NroDePagina, RegPorPag);
+            return Json(listado);
+        }
 
-        //***************************************************************************************************************************************
-        //REGISTRO INSPECCION *******************************************************************************************************************
-        //***************************************************************************************************************************************
+
+//***************************************************************************************************************************************
+//REGISTRO INSPECCION *******************************************************************************************************************
+//***************************************************************************************************************************************
 
         public ActionResult ListarDatosPoliza(int idpoliza)
         {

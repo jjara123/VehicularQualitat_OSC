@@ -1,5 +1,4 @@
-﻿
-window.onload = function () {
+﻿window.onload = function () {
     Spinner_TipoVehiculo();
     Spinner_TipoUso();
     Spinner_MarcaVehiculo();
@@ -44,7 +43,7 @@ window.onload = function () {
     $("select[name=sp_TipoDocumento]").change(function () {
         var numerodocu = $("#nrodocumento_reg").val();
         tipodoc = $("#sp_TipoDocumento").val();
-        if (tipodoc == 6 && numerodocu.length > 8) {
+        if (tipodoc == 6) {
             //oculta campo apellido paterno
             $('#paterno_reg').addClass('Ocultar');
             $('#t_apepaterno').addClass('Ocultar');
@@ -80,9 +79,9 @@ window.onload = function () {
             //aparece campo nombre contacto
             $('#form_nomcontacto').removeClass('Ocultar');
             //aparece campo nombre contacto
-            $('#nombres_reg').val('-');
-            $('#paterno_reg').val('-');
-            $('#materno_reg').val('-');
+            $('#nombres_reg').val(' ');
+            $('#paterno_reg').val(' ');
+            $('#materno_reg').val(' ');
             $('#telefono_reg').val(0);
             $('#celular_reg').val(0);
 
@@ -654,7 +653,7 @@ function RegistrarPoliza_onclick() {
     var email_reg = $("#email_reg").val();
     var nropoliza_reg = $("#nropoliza_reg").val();
 
-    if (sp_TipoDocumento = 6) {
+    if (sp_TipoDocumento == 6) {
         var vnomcontacto = $("#nomcontacto_reg").val(); //de ser ruc
         sp_EstadoCivil = 1;
         nombres_reg = $("#rsocial_reg").val();
@@ -665,6 +664,7 @@ function RegistrarPoliza_onclick() {
 
     } else {
         var vnomcontacto = "-" // de ser dni
+
     }
 
 
@@ -675,7 +675,7 @@ function RegistrarPoliza_onclick() {
     $.ajax({
         type: "POST",
         url: "../Services/RegistrarPoliza",
-        data: "{smidtablatipopoliza:'" + parseInt(sp_Poliza) + "', vplaca:'" + placa_reg + "', smidmodelo:'" + parseInt(sp_ModeloVehiculo) + "', smaniofabrica:'" + parseInt(sp_anioFabricacion) + "', vmotor:'" + nromotor_reg + "', svin:'" + vin_reg + "', smnroasiento:'" + parseInt(nroasientos_reg) + "', vcolor:'" + color_reg + "', desumaasegurada:'" + sumaaseguradapost + "', smidtablaclasevehiculo:'" + parseInt(28) + "', idnrodocumento:'" + nrodocumento_reg + "', vnombres:'" + nombres_reg + "', vcelular:'" + celular_reg + "', vtelefono1:'" + telefono_reg + "', vemail:'" + email_reg + "', vreferencia:'" + referencia_reg + "', vnumero:'" + numeroubi_reg + "', vnombrevia:'" + direccion_reg + "', smIdTipoVia:'" + parseInt(sp_TipoVia) + "', smestadocivil:'" + parseInt(sp_EstadoCivil) + "', vdepartamento:'" + sp_Departamento + "', vprovincia:'" + sp_Provincia + "', vdistrito:'" + sp_Distrito + "', dfechanac:'" + fecnaci_reg + "', btsexo:'" + parseInt(sp_Sexo) + "', vapellidopat:'" + paterno_reg + "', vapellidomat:'" + materno_reg + "', idpoliza:'" + nropoliza_reg + "', sminacionalidad:'" + sp_Nacionalidad + "', vnomcontacto:'" + vnomcontacto +
+        data: "{smidtablatipopoliza:'" + parseInt(sp_Poliza) + "', vplaca:'" + placa_reg + "', smidmodelo:'" + parseInt(sp_ModeloVehiculo) + "', smaniofabrica:'" + parseInt(sp_anioFabricacion) + "', vmotor:'" + nromotor_reg + "', svin:'" + vin_reg + "', smnroasiento:'" + parseInt(nroasientos_reg) + "', vcolor:'" + color_reg + "', desumaasegurada:'" + sumaaseguradapost + "', smidtablaclasevehiculo:'" + 28 + "', idnrodocumento:'" + nrodocumento_reg + "', vnombres:'" + nombres_reg + "', vcelular:'" + celular_reg + "', vtelefono1:'" + telefono_reg + "', vemail:'" + email_reg + "', vreferencia:'" + referencia_reg + "', vnumero:'" + numeroubi_reg + "', vnombrevia:'" + direccion_reg + "', smIdTipoVia:'" + parseInt(sp_TipoVia) + "', smestadocivil:'" + parseInt(sp_EstadoCivil) + "', vdepartamento:'" + sp_Departamento + "', vprovincia:'" + sp_Provincia + "', vdistrito:'" + sp_Distrito + "', dfechanac:'" + fecnaci_reg + "', btsexo:'" + parseInt(sp_Sexo) + "', vapellidopat:'" + paterno_reg + "', vapellidomat:'" + materno_reg + "', idpoliza:'" + nropoliza_reg + "', sminacionalidad:'" + sp_Nacionalidad + "', vnomcontacto:'" + vnomcontacto +
             "', smidmarca:'" + sp_MarcaVehiculo + "', smidtipodocumento:'" + sp_TipoDocumento + "'}",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -698,6 +698,8 @@ function RegistrarPoliza_onclick() {
 
         if (respuesta == "true") {
             alert("Se registró satisfactoriamente");
+            Link();
+
         } else {
             alert("Lo sentimos, ocurrió un problema al momento de registrar la poliza");
         }
@@ -708,6 +710,10 @@ function RegistrarPoliza_onclick() {
 
 }
 
+function Link() {
+    //window.location = "../Poliza/ListarPoliza?id=" + idinspeccion;
+    window.location = "../Poliza/ListarPoliza";
+}
 
 
 
@@ -913,7 +919,9 @@ function validarPersonaSucces(data) {
         $("#email_reg").val(vemail);
         $("#sp_Departamento").val(Departamento);
         $("#sp_TipoDocumento").val(smidtipodocumento);
-        
+
+
+        //$("#sp_Distrito").val(Distrito);
         $("#sp_TipoVia").val(smIdTipoVia);
         $("#numeroubi_reg").val(vnumero);
         $("#direccion_reg").val(vnombrevia);
@@ -930,7 +938,36 @@ function validarPersonaSucces(data) {
         }, 1500);
     }
 
-   
+    //$("#nombres_reg").val(vnombres);
+    //$("#sp_Nacionalidad").val(sminacionalidad);
+    //$("#paterno_reg").val(vapellidopat);
+    //$("#materno_reg").val(vapellidomat);
+    //$("#fecnaci_reg").val(fechanac);
+    //$("#sp_Sexo").val(btsexo);
+    //$("#sp_EstadoCivil").val(smestadocivil);
+    //$("#telefono_reg").val(vtelefono1);
+    //$("#celular_reg").val(vcelular);
+    //$("#email_reg").val(vemail);
+    //$("#sp_Departamento").val(Departamento);
+    //$("#sp_TipoDocumento").val(smidtipodocumento);
+    //$("#nomcontacto_reg").val(vnomcontacto);
+
+
+    ////$("#sp_Distrito").val(Distrito);
+    //$("#sp_TipoVia").val(smIdTipoVia);
+    //$("#numeroubi_reg").val(vnumero);
+    //$("#direccion_reg").val(vnombrevia);
+    //$("#referencia_reg").val(vreferencia);
+
+    //var timer = setTimeout(function () {
+    //    Spinner_Provincia(Departamento);
+    //    Spinner_Distrito(Departamento, Provincia);
+    //}, 1000);
+
+    //var timer = setTimeout(function () {
+    //    $("#sp_Provincia").val(Provincia);
+    //    $("#sp_Distrito").val(Distrito);
+    //}, 1500);
 
 
 

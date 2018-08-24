@@ -592,6 +592,47 @@ namespace Infraestrutura.Data.SqlServer
             return listado;
         }
 
+        //Listar Poliza
+
+        public List<ListarPolizaEntity> ListarPoliza_DAL(string idpoliza, string placa, string fechaini, string fechafin, string nombre, int NroDePagina, int RegPorPag)
+        {
+            List<ListarPolizaEntity> listado = new List<ListarPolizaEntity>();
+
+            SqlCommand cmd = new SqlCommand("SP_VEH_ListarPoliza", cn.getcn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@idpoliza", idpoliza);
+            cmd.Parameters.AddWithValue("@placa", placa);
+            cmd.Parameters.AddWithValue("@fechaini", fechaini);
+            cmd.Parameters.AddWithValue("@fechafin", fechafin);
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            cmd.Parameters.AddWithValue("@NroDePagina", NroDePagina);
+            cmd.Parameters.AddWithValue("@RegPorPag", RegPorPag);
+
+            cn.getcn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ListarPolizaEntity clase = new ListarPolizaEntity();
+                clase.idpoliza = dr["idpoliza"].ToString();
+                clase.Persona = dr["Persona"].ToString();
+                clase.vplaca = dr["vplaca"].ToString();
+                clase.Marca = dr["Marca"].ToString();
+                clase.Emision = dr["Emision"].ToString();
+                clase.Estado = dr["Estado"].ToString();
+                clase.TotalRegistros = dr["TotalRegistros"].ToString();
+                listado.Add(clase);
+            }
+
+            dr.Close();
+            cmd.Dispose();
+            cn.getcn.Close();
+
+            return listado;
+        }
+
 
 
         //***************************************************************************************************************************************

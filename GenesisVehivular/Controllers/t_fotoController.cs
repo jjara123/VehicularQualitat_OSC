@@ -70,9 +70,13 @@ namespace GenesisVehivular.Controllers
                 db.t_fotos.Add(t_foto);
                 db.SaveChanges();
                 return RedirectToAction("RegistroInspeccion", "Inspeccion");
-            }
+                //return RedirectToAction("RegistroInspeccion", "Inspeccion",new { id = 33 });
 
+            }
+           
             return View(t_foto);
+          
+
         }
 
         // GET: t_foto/Edit/5

@@ -1,5 +1,13 @@
 ﻿window.onload = function () {
-    ReporteInspeccion(1);
+    idinspeccion_input = getParameterByName('id');
+    ReporteInspeccion(idinspeccion_input);
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
 //Listar Reporte Inspeccion
@@ -73,7 +81,12 @@ function ListarDatosReporteInspeccion(data) {
     document.getElementById('nrovin_id').innerHTML = nrovin;
     document.getElementById('kilometraje_id').innerHTML = kilometraje + " Km";
 
-    document.getElementById('accesoriosadi_id').innerHTML = cadenaAccesoriosAdicionados + ".";
+    if (cadenaAccesoriosAdicionados.length < 1) {
+        document.getElementById('accesoriosadi_id').innerHTML = "Ninguno";
+    } else {
+        document.getElementById('accesoriosadi_id').innerHTML = cadenaAccesoriosAdicionados + ".";
+    }
+    
     document.getElementById('observacion_id').innerHTML = observaciones;
  
    
@@ -81,14 +94,9 @@ function ListarDatosReporteInspeccion(data) {
 }
 
 
-
-
 function MaysPrimera(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-
-
 
 
 //Error:

@@ -191,6 +191,13 @@ namespace Dominio.Repositorio
             return dal.ValidarPersona_DAL(idnrodocumento);
         }
 
+        //listar persona
+        public List<ListarPolizaEntity> ListarPoliza_BL(string idpoliza, string placa, string fechaini, string fechafin, string nombre, int NroDePagina, int RegPorPag)
+        {
+            return dal.ListarPoliza_DAL(idpoliza, placa, fechaini, fechafin, nombre, NroDePagina, RegPorPag);
+        }
+
+
 
         //***************************************************************************************************************************************
         //REGISTRO INSPECCION *******************************************************************************************************************
