@@ -1074,9 +1074,76 @@ namespace Infraestrutura.Data.SqlServer
             return listado;
         }
 
-//***************************************************************************************************************************************
-//Reporte Inspeccion *******************************************************************************************************************
-//***************************************************************************************************************************************
+        //detalle poliza
+        public List<ReportePolizaEntity> ReportePoliza_DAL(int idpoliza)
+        {
+            List<ReportePolizaEntity> listado = new List<ReportePolizaEntity>();
+
+            SqlCommand cmd = new SqlCommand("SP_VEH_ListarDetaPoliza", cn.getcn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@idpoliza", idpoliza);
+
+            cn.getcn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ReportePolizaEntity clase = new ReportePolizaEntity();
+                clase.smidpersona = int.Parse(dr["smidpersona"].ToString());
+                clase.idpoliza = int.Parse(dr["idpoliza"].ToString());
+                clase.idvehiculo = int.Parse(dr["idvehiculo"].ToString());
+                clase.claseveh = int.Parse(dr["smidpersona"].ToString());
+                clase.marcaveh = int.Parse(dr["marcaveh"].ToString());
+                clase.modeloveh = int.Parse(dr["modeloveh"].ToString());
+                clase.anio = int.Parse(dr["anio"].ToString());
+                clase.color = dr["color"].ToString();
+                clase.nromotor = dr["nromotor"].ToString();
+                clase.placa = dr["placa"].ToString();
+                clase.vin = dr["vin"].ToString();
+                clase.puertas = int.Parse(dr["puertas"].ToString());
+                clase.uso = int.Parse(dr["uso"].ToString());
+                clase.suma = dr["suma"].ToString();
+                clase.nacionalidad = int.Parse(dr["nacionalidad"].ToString());
+                clase.nombre = dr["nombre"].ToString();
+                clase.apepaterno = dr["apepaterno"].ToString();
+                clase.apematerno = dr["apematerno"].ToString();
+                clase.nacimiento = dr["nacimiento"].ToString();
+                clase.genero = int.Parse(dr["genero"].ToString());
+                clase.estadocivil = int.Parse(dr["estadocivil"].ToString());
+                clase.telefono = dr["telefono"].ToString();
+                clase.celular = dr["celular"].ToString();
+                clase.mail = dr["mail"].ToString();
+                clase.ubigeo = int.Parse(dr["ubigeo"].ToString());
+                clase.via = int.Parse(dr["via"].ToString());
+                clase.numero = dr["numero"].ToString();
+                clase.referencia = dr["referencia"].ToString();
+                clase.nomvia = dr["nomvia"].ToString();
+                clase.tipdocumento = int.Parse(dr["tipdocumento"].ToString());
+                clase.nrodocumento = dr["nrodocumento"].ToString();
+                clase.contacto = dr["contacto"].ToString();
+                clase.Departamento = dr["Departamento"].ToString();
+                clase.Provincia = dr["Provincia"].ToString();
+                clase.Distrito = dr["Distrito"].ToString();
+                clase.inivigencia = dr["inivigencia"].ToString();
+                clase.finvigencia = dr["finvigencia"].ToString();
+                clase.tippoliza = int.Parse(dr["tippoliza"].ToString());
+                clase.planproducto = dr["planproducto"].ToString();
+
+                listado.Add(clase);
+            }
+
+            dr.Close();
+            cmd.Dispose();
+            cn.getcn.Close();
+
+            return listado;
+        }
+
+        //***************************************************************************************************************************************
+        //Reporte Inspeccion *******************************************************************************************************************
+        //***************************************************************************************************************************************
 
         //Listado Modelo Vehiculo
         public List<ReporteInspeccionEntity> ListarReporteInspeccion_DAL(int iidinspeccion)

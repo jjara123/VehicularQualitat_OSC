@@ -10,7 +10,7 @@ function InicioPoliza() {
     window.onload = function () {       
 
 
-        idinspeccion_input = getParameterByName('id');      
+         idinspeccion_input = getParameterByName('id');    
 
         
         Spinner_Nacionalidad();

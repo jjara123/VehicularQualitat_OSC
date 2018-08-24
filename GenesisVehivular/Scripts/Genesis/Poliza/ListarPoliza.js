@@ -1,6 +1,10 @@
 ﻿window.onload = function () {
+
+
+
     $("#fechaini").val(FechaActual())
     $("#fechafin").val(FechaActual());
+
 }
 
 function FechaActual() {
@@ -88,6 +92,7 @@ function ListarGrillaPoliza(data) {
                         "<td>" + data[i].Marca + "</td>" +
                         "<td>" + data[i].Emision + "</td>" +
                         "<td>" + data[i].Estado + "</td>" +
+                        //"<td><input type=button onclick = Link('" + data[i].idpoliza + "')  value=Seleccionar class=btn_customer btn-secondary/></td>" +                        
                         "<td><input type=button onclick = Link('" + data[i].idpoliza + "')  value=Seleccionar class=btn_customer btn-secondary/></td>" +
                         "</tr>");
         }
@@ -103,14 +108,20 @@ function ListarGrillaPoliza(data) {
         tabla.append("</tbody>")
     }
 
-   
-
-
-
-
-
-
 }
+
+function Link(idpoliza) {
+
+    window.location = "../Poliza/RegistroPoliza?idpoliza=" + idpoliza;
+
+    //$.redirect(surl,
+    //{
+    //    alarmhistoryid: alarmid, evento: even
+    //}, "post", "");
+}
+
+
+
 
 
 function ListarGrilla() {
@@ -178,10 +189,10 @@ $("#Siguiente").click(function () {
 });
 
 //Link con el metodo POST
-function Link(idinspeccion) {
-    //alert(idinspeccion);
-    //window.location = "../Poliza/ListarPoliza?id=" + idinspeccion;
-}
+//function Link(idinspeccion) {
+//    //alert(idinspeccion);
+//    //window.location = "../Poliza/ListarPoliza?id=" + idinspeccion;
+//}
 
 
 

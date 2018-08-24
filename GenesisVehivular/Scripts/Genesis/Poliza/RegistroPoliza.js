@@ -126,14 +126,208 @@
 
     });
 
-
-
-
-
-
     //$("#fecnaci_reg").datepicker();
 
+    idpoliza_input = getParameterByName('idpoliza');
+    if (idpoliza_input.length > 0) {
+        DatosPoliza(idpoliza_input);
+    }
+    
+}
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+function DatosPoliza(idpoliza){
+    
+    
+    $.ajax({
+        type: "POST",
+        url: "../Services/DatosPoliza",
+        data: "{idpoliza:'" + idpoliza + "'}",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: llenar_registro_poliza,
+        failure: function (response) {
+            alert(response.d);
+        },
+        error: OnError
+
+    });
+
+
+}
+
+function llenar_registro_poliza(data) {
+    
+    //---DATOS DEL VEHICULO
+    $("#placa_reg").val(data[0].placa);
+    $("#nroasientos_reg").val(data[0].puertas);
+    //$("#sp_TipoVehiculo").val(data[0].claseveh);
+    $("#sp_MarcaVehiculo").val(data[0].marcaveh);
+    $("#sp_ModeloVehiculo").val(data[0].modeloveh);
+    $("#nromotor_reg").val(data[0].nromotor);
+    $("#vin_reg").val(data[0].vin);
+    $("#color_reg").val(data[0].color);
+    $("#sp_TipoUso").val(data[0].uso);
+    $("#sumaasegurada_reg").val(data[0].suma);
+    $("#nroserie_reg").val("H1500S6S26S2");
+    //$("#nroserie_reg").val(data[0].nroserie);
+
+    if (data[0].tipdocumento == 6) {
+        //oculta campo apellido paterno
+        $('#paterno_reg').addClass('Ocultar');
+        $('#t_apepaterno').addClass('Ocultar');
+        //oculta campo apellido materno
+        $('#t_apematerno').addClass('Ocultar');
+        $('#materno_reg').addClass('Ocultar');
+        //oculta campo sexo
+        $('#t_sexo').addClass('Ocultar');
+        $('#sp_Sexo').addClass('Ocultar');
+        //oculta campo nacionalidad
+        $('#t_nacionalidad').addClass('Ocultar');
+        $('#sp_Nacionalidad').addClass('Ocultar');
+        //oculta campo fecha nacimiento
+        $('#t_fecnacimineto').addClass('Ocultar');
+        $('#fecnaci_reg').addClass('Ocultar');
+        //oculta campo celular
+        $('#t_celular').addClass('Ocultar');
+        $('#celular_reg').addClass('Ocultar');
+        //oculta campo estado civil
+        $('#t_estcivil').addClass('Ocultar');
+        $('#sp_EstadoCivil').addClass('Ocultar');
+        //oculta campo telf. fijo
+        $('#t_telfijo').addClass('Ocultar');
+        $('#telefono_reg').addClass('Ocultar');
+        //oculta campo email
+        $('#t_email').addClass('Ocultar');
+        $('#email_reg').addClass('Ocultar');
+        //oculta campo nombre
+        $('#t_nombre').addClass('Ocultar');
+        $('#nombres_reg').addClass('Ocultar');
+        //aparece campo razon social
+        $('#form_rsocial').removeClass('Ocultar');
+        //aparece campo nombre contacto
+        $('#form_nomcontacto').removeClass('Ocultar');
+        //aparece campo nombre contacto
+        $('#nombres_reg').val('-');
+        $('#paterno_reg').val('-');
+        $('#materno_reg').val('-');
+        $('#telefono_reg').val(0);
+        $('#celular_reg').val(0);
+
+        //========TRAE DATOS A LOS CAMPOS========
+
+        $("#sp_TipoDocumento").val(data[0].tipdocumento);
+        $("#rsocial_reg").val(data[0].nombre);
+        $("#nomcontacto_reg").val(data[0].contacto);
+        $("#sp_Departamento").val(data[0].Departamento);
+        $("#nrodocumento_reg").val(data[0].nrodocumento);
+
+        //$("#sp_Distrito").val(Distrito);
+        $("#sp_TipoVia").val(data[0].via);
+        $("#numeroubi_reg").val(data[0].numero);
+        $("#direccion_reg").val(data[0].nomvia);
+        $("#referencia_reg").val(data[0].referencia);
+
+        var timer = setTimeout(function () {
+            Spinner_Provincia(data[0].Departamento);
+            Spinner_Distrito(data[0].Departamento, data[0].Provincia);
+        }, 1000);
+
+        var timer = setTimeout(function () {
+            $("#sp_Provincia").val(data[0].Provincia);
+            $("#sp_Distrito").val(data[0].Distrito);
+        }, 1500);
+
+    } else {
+
+
+        //mostrar campo apellido paterno
+        $('#paterno_reg').removeClass('Ocultar');
+        $('#t_apepaterno').removeClass('Ocultar');
+        //mostrar campo apellido materno
+        $('#t_apematerno').removeClass('Ocultar');
+        $('#materno_reg').removeClass('Ocultar');
+        //mostrar campo sexo
+        $('#t_sexo').removeClass('Ocultar');
+        $('#sp_Sexo').removeClass('Ocultar');
+        //mostrar campo nacionalidad
+        $('#t_nacionalidad').removeClass('Ocultar');
+        $('#sp_Nacionalidad').removeClass('Ocultar');
+        //mostrar campo fecha nacimiento
+        $('#t_fecnacimineto').removeClass('Ocultar');
+        $('#fecnaci_reg').removeClass('Ocultar');
+        //mostrar campo celular
+        $('#t_celular').removeClass('Ocultar');
+        $('#celular_reg').removeClass('Ocultar');
+        //mostrar campo estado civil
+        $('#t_estcivil').removeClass('Ocultar');
+        $('#sp_EstadoCivil').removeClass('Ocultar');
+        //mostrar campo telf. fijo
+        $('#t_telfijo').removeClass('Ocultar');
+        $('#telefono_reg').removeClass('Ocultar');
+        //mostrar campo email
+        $('#t_email').removeClass('Ocultar');
+        $('#email_reg').removeClass('Ocultar');
+        //mostrar campo nombre
+        $('#t_nombre').removeClass('Ocultar');
+        $('#nombres_reg').removeClass('Ocultar');
+        //ocultar campo razon social
+        $('#form_rsocial').addClass('Ocultar');
+        //ocultar campo razon social
+        $('#form_nomcontacto').addClass('Ocultar');
+
+        $('#nomcontacto_reg').val(' ');
+
+        //---DATOS DEL SOLICITANTE
+        $("#sp_TipoDocumento").val(data[0].tipdocumento);
+        $("#nrodocumento_reg").val(data[0].nrodocumento);
+        $("#sp_Nacionalidad").val(data[0].nacionalidad);
+        $("#nombres_reg").val(data[0].nombre);
+        $("#paterno_reg").val(data[0].apepaterno);
+        $("#materno_reg").val(data[0].apematerno);
+        $("#fecnaci_reg").val(data[0].nacimiento);
+        $("#sp_Sexo").val(data[0].genero);
+        $("#sp_EstadoCivil").val(data[0].estadocivil);
+        $("#telefono_reg").val(data[0].telefono);
+        $("#celular_reg").val(data[0].celular);
+        $("#email_reg").val(data[0].mail);
+        $("#sp_Departamento").val(data[0].Departamento);
+        //$("#sp_Provincia").val(data[0].Provincia);
+        //$("#sp_Distrito").val(data[0].Distrito);
+        $("#sp_TipoVia").val(data[0].via);
+        $("#numeroubi_reg").val(data[0].numero);
+        $("#direccion_reg").val(data[0].nomvia);
+        $("#referencia_reg").val(data[0].referencia);
+
+
+        var timer = setTimeout(function () {
+            Spinner_Provincia(data[0].Departamento);
+            Spinner_Distrito(data[0].Departamento, data[0].Provincia);
+        }, 1000);
+
+        var timer = setTimeout(function () {
+            $("#sp_Provincia").val(data[0].Provincia);
+            $("#sp_Distrito").val(data[0].Distrito);
+        }, 1500);
+    }
+
+    //---DATOS DE POLIZA
+    $("#nropoliza_reg").val(data[0].idpoliza);
+    $("#vigenciaini_reg").val(data[0].inivigencia);
+    $("#vigenciafin_reg").val(data[0].finvigencia);
+    $("#sp_Poliza").val(data[0].tippoliza);
+
+    if (data[0].planproducto == "PLATINUM") {
+        $("#sp_Plan").val(1);
+    }
+    
 }
 
 //Llenar Spiners *********************************************************************************
@@ -937,39 +1131,6 @@ function validarPersonaSucces(data) {
             $("#sp_Distrito").val(Distrito);
         }, 1500);
     }
-
-    //$("#nombres_reg").val(vnombres);
-    //$("#sp_Nacionalidad").val(sminacionalidad);
-    //$("#paterno_reg").val(vapellidopat);
-    //$("#materno_reg").val(vapellidomat);
-    //$("#fecnaci_reg").val(fechanac);
-    //$("#sp_Sexo").val(btsexo);
-    //$("#sp_EstadoCivil").val(smestadocivil);
-    //$("#telefono_reg").val(vtelefono1);
-    //$("#celular_reg").val(vcelular);
-    //$("#email_reg").val(vemail);
-    //$("#sp_Departamento").val(Departamento);
-    //$("#sp_TipoDocumento").val(smidtipodocumento);
-    //$("#nomcontacto_reg").val(vnomcontacto);
-
-
-    ////$("#sp_Distrito").val(Distrito);
-    //$("#sp_TipoVia").val(smIdTipoVia);
-    //$("#numeroubi_reg").val(vnumero);
-    //$("#direccion_reg").val(vnombrevia);
-    //$("#referencia_reg").val(vreferencia);
-
-    //var timer = setTimeout(function () {
-    //    Spinner_Provincia(Departamento);
-    //    Spinner_Distrito(Departamento, Provincia);
-    //}, 1000);
-
-    //var timer = setTimeout(function () {
-    //    $("#sp_Provincia").val(Provincia);
-    //    $("#sp_Distrito").val(Distrito);
-    //}, 1500);
-
-
 
 }
 
