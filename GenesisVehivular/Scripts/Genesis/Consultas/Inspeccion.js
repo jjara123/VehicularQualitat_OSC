@@ -53,15 +53,21 @@ function ListarGrillaInspeccion(data) {
 
     select.empty();
 
-    if (parseInt(data[1].TotalRegistros) > parseInt(regporpag)) {
+    if (data.length > 1) {
+        if (parseInt(data[1].TotalRegistros) > parseInt(regporpag)) {
 
-        for (i = 1; i <= Math.ceil(parseInt(data[1].TotalRegistros) / parseInt(regporpag)) ; i++) {
-            select.append("<option value = " + i + ">" + i + "</option>");
+            for (i = 1; i <= Math.ceil(parseInt(data[1].TotalRegistros) / parseInt(regporpag)) ; i++) {
+                select.append("<option value = " + i + ">" + i + "</option>");
+            }
+        }
+        else {
+            select.append("<option value = '1'> 1</option>");
         }
     }
     else {
         select.append("<option value = '1'> 1</option>");
     }
+
 
     $("#Pagina").val(pagina);
 

@@ -4,6 +4,7 @@
 
     $("#fechaini").val(FechaActual())
     $("#fechafin").val(FechaActual());
+    ListarGrilla();
 
 }
 
@@ -48,18 +49,24 @@ function ListarGrillaPoliza(data) {
     var regporpag = "10";
     var TotalRegistros = "1";
     var i = 1;
-
+    
     select.empty();
 
-    if (parseInt(data[1].TotalRegistros) > parseInt(regporpag)) {
+    if (data.length > 1) {
+        if (parseInt(data[1].TotalRegistros) > parseInt(regporpag)) {
 
-        for (i = 1; i <= Math.ceil(parseInt(data[1].TotalRegistros) / parseInt(regporpag)) ; i++) {
-            select.append("<option value = " + i + ">" + i + "</option>");
+            for (i = 1; i <= Math.ceil(parseInt(data[1].TotalRegistros) / parseInt(regporpag)) ; i++) {
+                select.append("<option value = " + i + ">" + i + "</option>");
+            }
+        }
+        else {
+            select.append("<option value = '1'> 1</option>");
         }
     }
     else {
         select.append("<option value = '1'> 1</option>");
     }
+
 
     $("#Pagina").val(pagina);
 

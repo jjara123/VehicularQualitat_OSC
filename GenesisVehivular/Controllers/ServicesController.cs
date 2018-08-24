@@ -226,7 +226,7 @@ namespace GenesisVehivular.Controllers
         }
 
         public ActionResult DatosPoliza(int idpoliza)
-        {
+        {            
             General_BL bl = new General_BL();
             List<ReportePolizaEntity> listado = bl.ReportePoliza_BL(idpoliza);
             return Json(listado);
