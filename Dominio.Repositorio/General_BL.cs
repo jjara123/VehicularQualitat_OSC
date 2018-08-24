@@ -184,6 +184,11 @@ namespace Dominio.Repositorio
 
                 );
         }
+        //validar poliza
+        public List<ValidarIdPoliza> ValidarIdPoliza_BL(int idpoliza)
+        {
+            return dal.ValidarIdPoliza_DAL(idpoliza);
+        }
 
         //validar persona
         public List<ValidarPersona> ValidarPersona_BL(string idnrodocumento)

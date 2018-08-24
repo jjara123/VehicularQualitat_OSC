@@ -633,6 +633,37 @@ namespace Infraestrutura.Data.SqlServer
             return listado;
         }
 
+        //validar Poliza
+
+        public List<ValidarIdPoliza> ValidarIdPoliza_DAL(int idpoliza)
+        {
+            List<ValidarIdPoliza> respuesta = new List<ValidarIdPoliza>();
+
+            SqlCommand cmd = new SqlCommand("SP_VEH_ValidarIdPoliza", cn.getcn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@idpoliza", idpoliza);
+
+            cn.getcn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ValidarIdPoliza clase = new ValidarIdPoliza();
+                clase.respuesta = dr["respuesta"].ToString();
+
+
+                respuesta.Add(clase);
+            }
+
+            dr.Close();
+            cmd.Dispose();
+            cn.getcn.Close();
+
+            return respuesta;
+        }
+
 
 
         //***************************************************************************************************************************************

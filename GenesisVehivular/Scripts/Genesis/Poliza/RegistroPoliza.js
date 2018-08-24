@@ -136,6 +136,10 @@
 
 }
 
+
+
+
+
 //Llenar Spiners *********************************************************************************
 
 //Tipo Vehiculo:
@@ -608,9 +612,44 @@ function SuccesText() {
     $('#contenedor_errorMessage').addClass('Ocultar');
 }
 
+
 function RegistrarPoliza_onclick() {
 
+    var idpoliza = $("#nropoliza_reg").val();
+       
+    //PRIMERO SE VALIDA SI EXISTE LA POLIZA
+    $.ajax({
+        type: "POST",
+        url: "../Services/ValidarIdPoliza",
+        data: "{idpoliza:'" + parseInt(idpoliza) + "'}",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data[0].respuesta == 'existe') {
+                alert('No se puede guardar el registro, porque el Nro. Poliza ya existe');
+            }
+            else {
+                RegistrarPoliza();                
+            };
+        },
+        failure: function (response) {
+            alert(response.d);
+        },
 
+        error: OnError
+
+    });
+
+
+    
+
+    
+
+}
+
+function RegistrarPoliza() {
+
+    
     var sp_TipoVehiculo = $("#sp_TipoVehiculo").val();
     var sp_MarcaVehiculo = $("#sp_MarcaVehiculo").val();
     var sp_ModeloVehiculo = $("#sp_ModeloVehiculo").val();
@@ -672,6 +711,8 @@ function RegistrarPoliza_onclick() {
 
     var sumaaseguradapost = (parseFloat(sumaasegurada_reg).toFixed(2)).toString();
 
+    
+
     $.ajax({
         type: "POST",
         url: "../Services/RegistrarPoliza",
@@ -706,9 +747,10 @@ function RegistrarPoliza_onclick() {
 
     }
 
-
+    
 
 }
+
 
 function Link() {
     //window.location = "../Poliza/ListarPoliza?id=" + idinspeccion;
